@@ -1,22 +1,16 @@
 'use strict';
-
-function test(str) {
-  if (typeof str !== 'string') {
-    alert('аргумент не строка');
-    return;
+let arr = ['132', '227', '355', '404', '547', '678', '777']; // в виде строк
+let item
+arr.forEach((item) = function(item) {
+  if (item.startsWith('2') || item.startsWith('4')) {
+    console.log(item);
   }
+});
 
-  str = str.trim('');
-  return str.length > 30 ? str.slice(0, 30) + '...' : str;
+function isPrime(n) {
+  for (let i = 2; i * i <= n; i == 2 ? i++ : i += 2) if (n % i == 0) return false;
+  return n > 1;
 }
+isPrime();
+const res = [...Array(41)].reduce((a, _, i) => a.concat(isPrime(i) ? `Делители числа ${i}: 1 и ${i}` : []) , []).join('\n')
 
-let string = "Имя пользователя";
-let stringLength = 'asdlkasjdlasjdaslkdajsldlasjdlasdjlasdkjalsdjalsdjalsdjl';
-let number = 123;
-
-test(string);
-console.log(test(string));
-test(number);
-console.log(test(number));
-test(stringLength);
-console.log(test(stringLength));
